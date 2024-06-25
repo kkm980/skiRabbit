@@ -44,8 +44,8 @@ const TransactionRecords = () => {
             {transactions.length===0 && <>
                 <span>Nothing to show,</span> <a href="/" className="font-bold text-md text-[blue] mr-1">mint</a><span>NFTs now!</span>
             </>}
-            {transactions?.map((el:any) => (
-                <div className="relative border-2 border-primary rounded-[8px] p-4 mb-4 max-w-[550px] h-[150px] cursor-default transactionCard"
+            {transactions?.map((el:any, index: number) => (
+                <div key={index} className="relative border-2 border-primary rounded-[8px] p-4 mb-4 max-w-[550px] h-[150px] cursor-default transactionCard"
                 onClick={(e) => e.stopPropagation()}
                 >
                     <div className="mb-4">

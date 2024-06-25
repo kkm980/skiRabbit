@@ -123,10 +123,20 @@ const AccountCard = () => {
                     <p className="number"> {formatAccount(account ? account : "")}</p>
                     <p className="valid_thru">VALID THRU</p>
                     <p className="date_8264">1 2 / 2 4</p>
-                    <p className="name">{signMsg ? formatAccount(signMsg?.length > 0 ? signMsg : "") : <AnimatedTooltip
-                        children={<Image width={20} height={20} src="/images/home/sign.gif" onClick={() => handleSignMessage()} className='cursor-pointer' alt="Sign" />}
-                        content="Sign and verify"
-                    />}</p>
+                    <p className="name">{signMsg ? formatAccount(signMsg?.length > 0 ? signMsg : "")
+                        :
+                        <AnimatedTooltip content="Sign and verify">
+                            <Image
+                                width={20}
+                                height={20}
+                                src="/images/home/sign.gif"
+                                onClick={() => handleSignMessage()}
+                                className="cursor-pointer"
+                                alt="Sign"
+                            />
+                        </AnimatedTooltip>
+                    }
+                    </p>
                 </div>
             </div>
         </div>

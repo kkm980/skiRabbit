@@ -17,7 +17,7 @@ const ProfileBox = () => {
     return (
         <div className="flex justify-between items-center flex-wrap m-2 mt-[20px]">
             {profileConfig?.map((el: any, index: number) => (
-                <div className="m-2 hover:scale-[1.1] transition-transform duration-[1200ms]"
+                <div key={index} className="m-2 hover:scale-[1.1] transition-transform duration-[1200ms]"
                 onClick={(e) => {
                     e.stopPropagation();
                     setUserProfile(el.img, el.name);

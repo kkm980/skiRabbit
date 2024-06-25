@@ -26,7 +26,7 @@ export default function Home() {
         <div className="flex justify-between items-center">
           <div>
             <MintButton/>
-            <span className="text-xs mt-1 mt-2">*Click on number to adjust number<strong>(max 4) </strong>and click on "Mint now" to mint nft</span>
+            <span className="text-xs mt-1 mt-2">Click on number to adjust number<strong>max 4</strong>and click on "Mint now" to mint nft</span>
           </div>
 
           <div>

@@ -12,16 +12,14 @@ import Loader from '../common/Loader';
 
 const WalletConnector: React.FC = () => {
     const [mounted, setMounted] = React.useState(false);
-    
+    const { account, connectWallet, userProfileConfig } = useContext(Web3Context);
     React.useEffect(() => {
         setMounted(true);
     }, []);
 
     if (!mounted) {
-        return <Loader/>; // Avoid hydration mismatch by not rendering on the server
+        return <Loader />; // Avoid hydration mismatch by not rendering on the server
     }
-    // const { account, connectWallet, disconnectWallet, signMessage } = useWeb3();
-    const { account, balance, connectWallet, userProfileConfig } = useContext(Web3Context);
     const handleSignMessage = async () => {
         const message = 'Sign this message to prove you own this wallet!';
     };
@@ -31,10 +29,18 @@ const WalletConnector: React.FC = () => {
         <div className=''>
             {account ? (
                 <div className='mr-2'>
-                    <AnimatedTooltip children={<Link className='bg-transparent hover:bg-transparent' href="/about"><Image width={40} height={40} src={userProfileConfig?.profileImg} alt={userProfileConfig?.profileType} /></Link>} content="Profile"></AnimatedTooltip>
+                    <AnimatedTooltip content="Profile">
+                        <Link className='bg-transparent hover:bg-transparent' href="/about">
+                            <Image width={40} height={40} src={userProfileConfig?.profileImg} alt={userProfileConfig?.profileType} />
+                        </Link>
+                    </AnimatedTooltip>
                 </div>
             ) : (
-                <AnimatedTooltip children={<Button className='bg-transparent hover:bg-transparent' onClick={()=>connectWallet()}><Image width={40} height={40} src="/images/home/connect.gif" alt="connect" /></Button>} content="Connect Metamask wallet"></AnimatedTooltip>
+                <AnimatedTooltip content="Connect Metamask wallet">
+                    <Button className='bg-transparent hover:bg-transparent'
+                        onClick={() => connectWallet()}>
+                        <Image width={40} height={40} src="/images/home/connect.gif" alt="connect" /></Button>
+                </AnimatedTooltip>
             )}
         </div>
     );
