@@ -1,0 +1,27 @@
+.cardContent {
+    transition: max-height 400ms ease-in-out;
+    overflow: hidden;
+    max-height: 64px; /* Default height for collapsed state */
+}
+
+.cardContent.expanded {
+    max-height: 800px; /* Large enough value to accommodate the content */
+}
+
+.arrow {
+    transition: rotate 400ms ease-in-out;
+    rotate: 0deg;
+}
+
+.arrow.rotated {
+    rotate: 45deg; /* Large enough value to accommodate the content */
+}
+
+
+
+.decoratedText {
+    cursor: pointer;
+    text-decoration: double;
+    border-bottom: 2px solid rgb(28, 153, 143);
+}
+
